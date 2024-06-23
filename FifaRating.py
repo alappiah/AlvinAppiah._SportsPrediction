@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import streamlit as st 
-#from sklearn import preprocessing
 import pickle
 import xgboost
 
@@ -17,15 +16,15 @@ def main():
     """
     st.markdown(html_temp, unsafe_allow_html = True)
 
-    movement_reactions = st.text_input("Movement Reaction","0") 
-    potential = st.text_input("Potential","0",max_chars=2) 
-    passing = st.text_input("Passing","0") 
-    wage = st.text_input("Wage (euros)","0") 
-    mentality_composure = st.text_input("Mentality Composure","0") 
-    value = st.text_input("Value (euros)","0") 
-    dribbling = st.text_input("Dribbling","0") 
-    attack_shot_passing = st.text_input("Attacking Shot Passing","0")
-    mentality_vision = st.text_input("Mentality Vision","0")
+    movement_reactions = st.text_input("Movement Reaction","80") 
+    potential = st.text_input("Potential","89") 
+    passing = st.text_input("Passing","80") 
+    wage = st.text_input("Wage (euros)","100000") 
+    mentality_composure = st.text_input("Mentality Composure","70") 
+    value = st.text_input("Value (euros)","200000") 
+    dribbling = st.text_input("Dribbling","82") 
+    attack_shot_passing = st.text_input("Attacking Shot Passing","80")
+    mentality_vision = st.text_input("Mentality Vision","90")
 
     # Prediction button
     if st.button("Predict"):
@@ -40,7 +39,7 @@ def main():
                 int(value),
                 int(dribbling),
                 int(attack_shot_passing),
-                int(mentality_vision)
+                float(mentality_vision)
             ]).reshape(1, -1)
             
             # Make prediction
